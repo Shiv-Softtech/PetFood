@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+}
+
+
+<!-- main section -->
+<main class="container" ng-controller="accountController">
+    <!-- login form section start -->
+    <div class="row my-5" ng-init="Login()">
+        <h1 class="text-center text-dark">Login</h1>
+        <div class="col-lg-8 m-auto d-block bg-light shadow-lg p-3 mb-5 rounded-2 w-50">
+            <form name="loginForm" ng-submit="submitloginForm()" novalidate>
+                <div class="form-group py-3">
+                    <label>Email:</label>
+                    <input type="email" name="email" id="email" class="form-control" placeholder="Enter your email" ng-model="email" ng-pattern="emailFormat" ng-required="true">
+                    <span ng-show="loginForm.email.$error.required && (loginForm.email.$dirty || submitted)" class="text-danger">Email is required.</span>
+                    <span ng-show="loginForm.email.$error.pattern && (loginForm.email.$dirty || submitted)" class="text-danger">Enter a valid email.</span>
+                </div>
+                <div class="form-group py-3">
+                    <label>Password:</label>
+                    <input type="password" name="password" id="password" class="form-control" placeholder="Enter your password" ng-model="password" ng-required="true">
+                    <span ng-show="loginForm.password.$error.required && (loginForm.password.$dirty || submitted)" class="text-danger">Your password is required.</span>
+                </div>
+                <div class="form-group py-1">
+                    <input type="checkbox" name="rememberme" ng-model="rememberme">
+                    <label>Remember me</label>
+                </div>
+                <button type="submit" id="login_submitbtn" class="btn btn-primary">Login</button>
+                <div><a href="/Account/Register" class="">Click to Register</a></div>
+            </form>
+        </div>
+    </div>
+    <!-- login form section end -->
+</main>
+

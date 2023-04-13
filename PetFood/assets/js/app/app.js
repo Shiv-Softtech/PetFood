@@ -1,0 +1,1 @@
+﻿var petFood = angular.module('PetFood', ['ngCookies']);

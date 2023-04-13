@@ -1,0 +1,74 @@
+﻿<!-- navbar start   -->
+
+    <nav class="navbar navbar-expand-lg bg-dark sticky-top px-5 py-3 shadow" id="navbar" >
+        <div class="container-fluid" ng-init="ProductList()">
+            <img src="/image/logo-white_170x.png" alt="companylogo">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item dropdown ps-4 fw-bold">
+                        <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">
+                            Home
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="/Home/Index">Home</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown ps-4 fw-bold">
+                        <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">
+                            Shop
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="/Product/Product">Dog Food</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown ps-4 fw-bold">
+                        <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">
+                            Collection
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <!-- Login buttons -->
+                <ul class="navbar-nav align-items-center">
+                    <li class="nav-item">
+                        <p id="set_name" class="text-white pe-2 d-inline" ng-bind="name"></p>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white lg_texthide" href="#" ng-hide="hide"><i class="fa fa-search fs-5"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white lg_texthide" href="/Account/Login" ng-hide="hide"><i class="fa fa-user fs-5"></i></a>
+                        <a href="#" class="text-light text-decoration-none" ng-bind="Logout" ng-click="logoutUser()"></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white lg_texthide" href="~/Product/AddToBasket"><i class="fa fa-shopping-bag fs-5"></i>
+                         <span class="itemcount" ng-bind="itemCount"></span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white lg_texthide" href="~/Product/WishList">
+                            <i class="fa fa-heart fs-5"></i>
+                            <span class="itemcount" ng-bind="WishlistCount"></span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+<!-- navbar end  -->

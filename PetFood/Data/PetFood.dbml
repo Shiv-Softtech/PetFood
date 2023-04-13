@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="PetFoodDB" Class="PetFoodDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=192.168.1.5;Initial Catalog=PetFoodDB;Persist Security Info=True;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="PetFoodDBConnectionString" Provider="System.Data.SqlClient" />
+  <Function Name="dbo.GetProducts_20220905" Method="GetProducts_20220905">
+    <ElementType Name="GetProducts_20220905Result">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(225)" CanBeNull="true" />
+      <Column Name="Price" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
+      <Column Name="Rating" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Categories" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Size" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Color" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="image" Type="System.String" DbType="NVarChar(225)" CanBeNull="true" />
+      <Column Name="Hover_Image" Type="System.String" DbType="NVarChar(225)" CanBeNull="true" />
+      <Column Name="Brand" Type="System.String" DbType="NVarChar(60)" CanBeNull="true" />
+      <Column Name="Tag" Type="System.String" DbType="NVarChar(60)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.InsertUser_20221409" Method="InsertUser_20221409">
+    <Parameter Name="UserName" Parameter="userName" Type="System.String" DbType="NVarChar(225)" />
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="NVarChar(225)" />
+    <Parameter Name="MobileNumber" Parameter="mobileNumber" Type="System.String" DbType="NVarChar(15)" />
+    <Parameter Name="Gender" Parameter="gender" Type="System.String" DbType="NVarChar(15)" />
+    <Parameter Name="Hobbies" Parameter="hobbies" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="Department" Parameter="department" Type="System.String" DbType="NVarChar(60)" />
+    <Parameter Name="Password" Parameter="password" Type="System.String" DbType="NVarChar(20)" />
+    <ElementType Name="InsertUser_20221409Result">
+      <Column Name="" Member="Column1" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.productDetail_20220909" Method="productDetail_20220909">
+    <Parameter Name="id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="productDetail_20220909Result">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(225)" CanBeNull="true" />
+      <Column Name="Price" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
+      <Column Name="Rating" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Categories" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Size" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Color" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="image" Type="System.String" DbType="NVarChar(225)" CanBeNull="true" />
+      <Column Name="Hover_Image" Type="System.String" DbType="NVarChar(225)" CanBeNull="true" />
+      <Column Name="image_one" Type="System.String" DbType="NVarChar(225)" CanBeNull="true" />
+      <Column Name="image_two" Type="System.String" DbType="NVarChar(225)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SortProduct_20220906" Method="SortProduct_20220906">
+    <Parameter Name="FeatureValue" Parameter="featureValue" Type="System.String" DbType="NVarChar(225)" />
+    <ElementType Name="SortProduct_20220906Result">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(225)" CanBeNull="true" />
+      <Column Name="Price" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
+      <Column Name="Rating" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Categories" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Size" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Color" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="image" Type="System.String" DbType="NVarChar(225)" CanBeNull="true" />
+      <Column Name="Hover_Image" Type="System.String" DbType="NVarChar(225)" CanBeNull="true" />
+      <Column Name="Brand" Type="System.String" DbType="NVarChar(60)" CanBeNull="true" />
+      <Column Name="Tag" Type="System.String" DbType="NVarChar(60)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.UserLogin_20220915" Method="UserLogin_20220915">
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="NVarChar(225)" />
+    <Parameter Name="Password" Parameter="password" Type="System.String" DbType="NVarChar(20)" />
+    <ElementType Name="UserLogin_20220915Result">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UserName" Type="System.String" DbType="NVarChar(225)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(225)" CanBeNull="true" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>

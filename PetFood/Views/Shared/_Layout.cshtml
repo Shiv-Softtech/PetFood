@@ -1,0 +1,13 @@
+﻿<!DOCTYPE html>
+<html ng-app="PetFood">
+@Html.Partial("_PetFoodHead")
+<body ng-controller="productController">
+    @Html.Partial("_PetFoodHeader")
+
+    <div>
+        @RenderBody()
+    </div>
+    @Html.Partial("_PetFoodFooter")
+
+</body>
+</html>

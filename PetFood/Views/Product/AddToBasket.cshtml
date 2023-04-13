@@ -1,0 +1,74 @@
+﻿
+@{
+    ViewBag.Title = "Basket_Page";
+
+}
+
+
+<!-- main section start  -->
+<main>
+    <!-- breadcrumb start  -->
+    <div class="breadcrumbcolor pb-1">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb container">
+                <li class="breadcrumb-item pt-2"><a href="/Home/Index" class="text-light text-decoration-none">Home</a></li>
+                <li class="breadcrumb-item pt-2"><a href="/Product/Product" class="text-light text-decoration-none">Dog Food</a></li>
+                <li class="breadcrumb-item active pt-2 text-light" aria-current="page" ng-bind="productPageDetail.Title"></li>
+            </ol>
+        </nav>
+    </div>
+    <!-- breadcrumb end  -->
+    <div class="container" ng-init="AddToBasket()">
+        <div class="row my-5">
+            <!--Add to cart list-->
+            <div class="col-lg-8 col-12">
+                <p class="fw-bold fs-3">Your cart</p>
+                <div class="row bg-light my-2 ps-3">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-4">PRODUCT</div>
+                    <div class="col-lg-4 col-md-4 col-sm-8 col-8">QUANTITY</div>
+                    <div class="col-lg-4 col-md-4 col-sm-12 col-12 text-end">TOTAL</div>
+                </div>
+                <div class="row my-2 position-relative" ng-repeat="addtocart in addtocarts">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-4">
+                        <img src="~/image/{{addtocart.Image}}" alt="Commodo leo sed porta"
+                             class="img-fluid w-50 border rounded">
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-8 col-8">
+                        <span class="d-block">Paw Nutrition</span>
+                        <a href="#" class="fw-bold text-dark text-decoration-none link-danger d-block" ng-bind="addtocart.Title"></a>
+                        <span>Size:</span> <span>4-lb bag</span>
+                        <span class="d-block price_tag_color" ng-bind="'$'+addtocart.Price"></span>
+
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12 col-12 text-end price_tag_color" ng-bind="'$'+addtocart.Price"> </div>
+                    <span class="position-absolute top-0 start-0 text-decoration-none delete_btn" ng-click="deleteCartId(addtocart.Id)">&#10060;</span>
+                    @*<a><div class="position-absolute top-0 start-0">&#10060;</div></a>*@
+                </div>
+            </div>
+
+            <!--Check out section-->
+            <div class="col-lg-4 col-12 bg-light my-4">
+                <p class="mt-3">Order special instructions</p>
+                <div class="form-floating my-2">
+                    <textarea class="form-control h-25" placeholder="Leave a comment here" id="floatingTextarea2"></textarea>
+                    <label for="floatingTextarea2">Order special instructions</label>
+                </div>
+                <div class="row border-top">
+                    <div class="col-12 d-flex justify-content-between my-2">
+                        <span>Subtotal:</span>
+                        <span class="price_tag_color" ng-bind="'$'+(Totalprice | number : 2)"></span>
+                    </div>
+                    <p class="text-end">Tax included. Shipping calculated at checkout.</p>
+                    <div class="col-12 text-center pt-2">
+                        <button class="rounded-pill add_to_cart w-100 border-0">Check Out</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+</main>
+<!-- main section end   -->

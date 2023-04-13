@@ -1,0 +1,200 @@
+﻿@{
+    ViewBag.Title = "Products_List";
+}
+
+
+<div>
+    <!-- bannner Section with  small Carousel -->
+            <div class="breadcrumbs_image position-relative">
+                <img src="/image/breadcumd.jpg" alt="banner" class="img-fluid w-100 big-images">
+            <div class="breadcrumbs_image_carousel_text position-absolute top-50 start-50 translate-middle">
+                <p class="text-white fw-semibold display-4 text-center">Products</p>
+                <nav  aria-label="breadcrumb">
+                    <ol class="breadcrumb container justify-content-center">
+                        <li class="breadcrumb-item pt-2"><a href="/Home/Index" class="text-light text-decoration-none">Home</a></li>
+                        <li class="breadcrumb-item pt-2"><a href="/Product/Product" class="text-light text-decoration-none">Products</a></li>
+                    </ol>
+                </nav>
+                <div id="carouselExampleControls" class="carousel carousel-dark slide breadcrumbs_image_carousel" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active d-flex justify-content-evenly ms-4">
+                            <div>
+                                <img src="/image/cate-5_330x303.jpg" class=" w-75 rounded-circle border border-white img-fluid" alt="cat img">
+                            </div>
+                            <div class="d-none d-xl-block d-md-block d-sm-block">
+                                <img src="/image/cate-6_330x303.jpg" class="w-75 rounded-circle border-white img-fluid" alt="cat img">
+                            </div>
+                            <div class="d-none d-xl-block d-md-block">
+
+                                <img src="/image/cate-7_330x303.jpg" class="w-75 rounded-circle border-white img-fluid" alt="cat img">
+                            </div>
+                            <div class="d-none d-xl-block">
+
+                                <img src="/image/cate-8_330x303.jpg" class=" w-75 rounded-circle border-white img-fluid" alt="cat img">
+                                <!-- <a href="#" class="d-block text-decoration-none ms-5 text-white fw-semibold">Dog Food</a> -->
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                            data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                            data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+             </div>
+            </div>
+    <!-- bannner Section with Carousel End-->
+    <!-- main section start -->
+    <main class="container" ng-init="ProductList()">
+        <div class="row my-5">
+            <!-- Product Filter Side Panel -->
+            <div class="d-none d-lg-block col-sm-3" id="mySidenav">
+                <a href="javascript:void(0)" class="closebtn text-dark d-block d-lg-none" onclick="closeNav()">
+                    &times;
+                </a>
+                <!-- Filter Options start-->
+                <div class="row">
+                    <!-- Product categories -->
+                    <div class="col-12">
+                        <p class="fs-3">Product categories</p>
+                        <hr>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked>
+                            <label class="form-check-label" for="flexCheckDefault">All</label>
+                        </div>
+                        <div class="form-check" ng-repeat="Product in Products | limitTo : 5">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                            <label class="form-check-label" for="flexCheckChecked" ng-bind="Product.Category"></label>
+                        </div>
+                    </div>
+                    <!-- Price filter -->
+                    <div class="col-12">
+                        <hr>
+                        <p class="fs-3">Price</p>
+                        <input type="number" value="0" class="w-25">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&mdash;
+                        <input type="number" value="87" class="w-25 ms-4">
+                    </div>
+                    <!-- Size filter -->
+                    <div class="col-12">
+                        <hr>
+                        <p class="fs-3">Size</p>
+                        <div class="form-check" ng-repeat="Product in Products | limitTo : 6">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                            <label class="form-check-label" for="flexCheckChecked" ng-bind="Product.Size+'-lb bag'">
+                            </label>
+                        </div>
+                    </div>
+                    <!-- Color filter -->
+                    <div class="col-12">
+                        <hr>
+                        <p class="fs-3">Color</p>
+                        <div class="form-check" ng-repeat="Product in Products | limitTo : 5">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                            <label class="form-check-label" for="flexCheckChecked" ng-bind="Product.Color"></label>
+                        </div>
+                    </div>
+                    <!-- Brand filter -->
+                    <div class="col-12">
+                        <hr>
+                        <p class="fs-3">Brand</p>
+                        <div class="form-check" ng-repeat="Product in Products | orderBy: 'Product.Brand'| limitTo : 5">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                            <label class="form-check-label" for="flexCheckChecked" ng-bind="Product.Brand"></label>
+                        </div>
+                    </div>
+                    <!-- Best seller filter -->
+                    <hr>
+                    <p class="fs-3">Best seller</p>
+                    <div class="row">
+                        <div class="col-12 d-flex justify-content-end border-bottom mb-1 pb-1" ng-repeat="Product in Products | limitTo : 5">
+                            <img ng-src="~/image/{{Product.Image}}" alt="sed porta" class="border rounded img-fluid w-25 h-100">
+                            <div class="row ps-2">
+                                <div class="col-12 text-start">
+                                    <i class="fa fa-star pe-1" ng-repeat="i in Products | limitTo : Product.Rating"></i>
+                                    @*<i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>*@
+                                </div>
+                                <div class="col-12" ng-bind="Product.Title"></div>
+                                <div class="price_tag_color col-12" ng-bind="'$'+Product.Price"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Tegs filter -->
+                    <div class="col-12">
+                        <p class="fs-3">Tags</p>
+                        <hr>
+                        <button type="button" class="btn btn-outline-dark rounded-pill m-1"ng-repeat="Product in Products | limitTo : 4" ng-bind="Product.Tag"></button>
+                    </div>
+                </div>
+            </div>
+            <!-- Filter Options end -->
+            <!-- Product Filter Side Panel end -->
+            <!-- Product List Section-->
+            <div class="col-lg-9 col-12">
+                <div class="d-flex justify-content-between">
+                    <span class="menulines d-lg-none d-inline my-4" onclick="openNav()">&#9776;FILTER</span>
+                    <span class="d-inline my-4 d-md-block d-none">Showing 1-15 of 18 Results</span>
+                    <select class="form-select bg-light border-0 my-4 w-25 d-inline" ng-change="lowTohigh()" ng-model="features.select">
+                        <option value="">Filters</option>
+                        <option value="Alphabetically,A-Z" ng-model="select">Alphabetically,A-Z</option>
+                        <option value="low to high" ng-model="select">Price, low to high</option>
+                        <option value="high to low" ng-model="select">Price, high to low</option>
+                    </select>
+
+                </div>
+                <div class="row">
+                    <!-- single Product -->
+                    <div class="product col-lg-4 col-md-4 col-sm-6 col-12 mb-4 position-relative" ng-repeat="Product in Products">
+                        <img ng-src="~/image/{{Product.Image}}" alt="Commodo leo sed porta"
+                             class="img-fluid w-100 border rounded front_img" ng-click="productDeatil(Product.Id)">
+                        <img ng-src="~/image/{{Product.Hover_Image}}" alt="Commodo leo sed porta"
+                             class="img-fluid w-100 border rounded back_img" ng-click="productDeatil(Product.Id)">
+                        <div class="row mt-2">
+                            <div class="col-12 text-center">
+                                <i class="fa fa-star pe-1" ng-repeat="i in Products | limitTo : Product.Rating"></i>
+                                <span class="fw-light">(1)</span>
+                            </div>
+                            <div class="col-12 text-center" ng-bind="Product.Title"></div>
+                            <div class="col-12 text-center price_tag_color" ng-bind="'$'+Product.Price"></div>
+                            <div class="col-12 text-center pt-2">
+                                <button class="rounded-pill border-0 add_to_cart" ng-click="AddToCart(Product.Id)">Add to cart</button>
+                            </div>
+                        </div>
+                        <a class="position-absolute top-0 end-0 pe-4 wishlist_icon" ng-click="Wishlist(Product.Id)"><i class="fa fa-heart-o"></i></a>
+                    </div>
+                </div>
+                <!-- pagination secction -->
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-end">
+                        <li class="page-item">
+                            <a class="page-link rounded-circle bg-dark" href="#" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                        </li>
+                        <li class="page-item"><a class="page-link rounded-circle bg-dark" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link rounded-circle bg-dark" href="#">2</a></li>
+                        <li class="page-item">
+                            <a class="page-link rounded-circle bg-dark" href="#" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <!-- Product List Section End-->
+        </div>
+    </main>
+    <!-- main section end -->
+</div>
+
+
+

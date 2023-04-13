@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewBag.Title = "Wishlist_Page";
+
+}
+
+
+<div>
+    <!-- breadcrumb start  -->
+    <div class="breadcrumbcolor pb-1">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb container">
+                <li class="breadcrumb-item pt-2"><a href="/Home/Index" class="text-light text-decoration-none">Home</a></li>
+                <li class="breadcrumb-item pt-2"><a href="/Product/Product" class="text-light text-decoration-none">Dog Food</a></li>
+                <li class="breadcrumb-item active pt-2 text-light" aria-current="page">Your Wishlist items</li>
+            </ol>
+        </nav>
+    </div>
+    <!-- breadcrumb end  -->
+    <!-- main section start  -->
+    <main class="container min-100" ng-init="AddToBasket()">
+        <div class="row">
+            <div class="col-12">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col"><input type="checkbox"></th>
+                            <th scope="col">Image</th>
+                            <th scope="col">Product name</th>
+                            <th scope="col">Unit price</th>
+                            <th scope="col">Quantity</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="wishlist in wishlists">
+                            <th scope="row"><input type="checkbox"></th>
+                            <td class="w-25 position-relative">
+                                <img src="~/image/{{wishlist.Image}}" alt="Commodo leo sed porta"
+                                     class="img-fluid w-25 border rounded">
+                                <a href="#" class="position-absolute top-0 start-0 text-decoration-none" ng-click="DeleteWishlistItem(wishlist.Id)">&#10060;</a>
+                            </td>
+                            <td ng-bind="wishlist.Title"></td>
+                            <td class="price_tag_color" ng-bind="'$'+wishlist.Price"></td>
+                            <td> <button class="rounded-pill border-0 add_to_cart" ng-click="AddToCart(Product.Id)">Add to cart</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+</div>
+
